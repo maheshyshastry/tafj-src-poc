@@ -1,0 +1,21 @@
+component XX.SAMPLE
+# Component Isolation Definition
+metamodelVersion 1.6
+# -------------------------------------------------
+
+public method XXPasspo ()
+
+{
+    jBC: XX.PASSPO
+    
+}
+
+
+public method XXVFtValidation ()
+
+{
+    jBC: XX.V.FT.VALIDATION
+    
+}
+
+
