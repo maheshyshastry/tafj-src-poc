@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.temenos.maven</groupId>
+        <artifactId>t24-core-tafj</artifactId>
+        <version>21.0</version>
+    </parent>
+
+    <groupId>com.temenos.ds.models</groupId>
+    <artifactId>BRP-data-code</artifactId>
+    <packaging>tafj-project</packaging>
+
+    <build>
+        <plugins>
+            <!-- Clean existing java files -->
+            <plugin>
+                <artifactId>maven-clean-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <configuration>
+                            <filesets>
+                                <fileset>
+                                    <directory>${basedir}/src/main/java</directory>
+                                </fileset>
+                            </filesets>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>build-component</goal>
+                        </goals>
+                        <configuration>
+                            <tafjHome>${tafjHome}</tafjHome>
+                            <tafjProperties>TTF-T24-UTILS-R21</tafjProperties>
+                            <basicDir>${t24Home}/...</basicDir>
+                            <insertDir>${t24Home}</insertDir>
+                            <keepJars>true</keepJars>
+                            <properties>
+                                <temn.tafj.compiler.generate.class>true</temn.tafj.compiler.generate.class>
+                                <temn.tafj.compiler.generate.java>false</temn.tafj.compiler.generate.java>
+                                <temn.tafj.compiler.generate.jar>true</temn.tafj.compiler.generate.jar>
+                                <temn.tafj.utf.generate.results>true</temn.tafj.utf.generate.results>
+                            </properties>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+        <pluginManagement>
+            <plugins>
+                <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+                <plugin>
+                    <groupId>org.eclipse.m2e</groupId>
+                    <artifactId>lifecycle-mapping</artifactId>
+                    <version>1.0.0</version>
+                    <configuration>
+                        <lifecycleMappingMetadata>
+                            <pluginExecutions>
+                                <pluginExecution>
+                                    <pluginExecutionFilter>
+                                        <groupId>com.googlecode.addjars-maven-plugin</groupId>
+                                        <artifactId>addjars-maven-plugin</artifactId>
+                                        <versionRange>[1.0.5,)</versionRange>
+                                        <goals>
+                                            <goal>add-jars</goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <ignore/>
+                                    </action>
+                                </pluginExecution>
+                            </pluginExecutions>
+                        </lifecycleMappingMetadata>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.temenos.tafj</groupId>
+            <artifactId>TAFJCore</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.temenos.tafj</groupId>
+            <artifactId>TAFJBASIC</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>
