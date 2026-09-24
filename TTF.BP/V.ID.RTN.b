@@ -9,7 +9,7 @@ SUBROUTINE V.ID.RTN
     $INSERT I_COMMON
     $INSERT I_EQUATE
     IF COMI = "HOHO" THEN
-        E = "In ID Routine. 1 to 5"
+        E = "In ID Routine. 1 to "
     END
 
 RETURN
